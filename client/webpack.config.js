@@ -18,12 +18,47 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Just Another Text Editor'
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+      }),
+      new WebpackPwaManifest({
+        publicPath: './',
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E.',
+        description: 'Takes notes with JavaScript syntax highlighting!',
+        theme_color: '#225ca3',
+        background_color: '#225ca3',
+        orientation: 'portrait',
+        display: 'standalone',
+        icons: [
+          {
+            src: path.resolve(__dirname, 'src/images/logo.png'),
+            size: '512x512'
+          }
+        ]
+      })
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            }
+          }
+        }
       ],
     },
   };
