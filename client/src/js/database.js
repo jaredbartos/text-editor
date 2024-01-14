@@ -12,6 +12,7 @@ const initdb = async () =>
     },
   });
 
+// Update database content
 export const putDb = async (content) => {
   console.log('PUT to the database');
   const jateDb = await openDB('jate', 1);
@@ -22,6 +23,7 @@ export const putDb = async (content) => {
   return result;
 };
 
+// Get database content
 export const getDb = async () => {
   console.log('GET from the database');
   const jateDb = await openDB('jate', 1);
@@ -29,6 +31,8 @@ export const getDb = async () => {
   const store = tx.objectStore('jate');
   const request = store.get(1);
   const result = await request;
+  // If database entry exists, return content value
+  // else return undefined result
   return result ? result.content : result;
 };
 
