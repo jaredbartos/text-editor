@@ -16,6 +16,7 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -30,6 +31,8 @@ module.exports = () => {
         name: 'Just Another Text Editor',
         short_name: 'J.A.T.E.',
         description: 'Takes notes with JavaScript syntax highlighting!',
+        start_url: '/',
+        fingerprints: false,
         theme_color: '#225ca3',
         background_color: '#225ca3',
         orientation: 'portrait',
@@ -37,7 +40,8 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve(__dirname, 'src/images/logo.png'),
-            size: '512x512'
+            sizes: [512, 256, 128, 96],
+            destination: path.join('assets', 'icons')
           }
         ]
       })
