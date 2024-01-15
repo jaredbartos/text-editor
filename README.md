@@ -33,7 +33,7 @@ Your downloaded app will then open on your device and will be accessible from wh
 
 ## Usage
 
-
+To use J.A.T.E., visit [this link](https://text-editor-jaredbartos.onrender.com/) to get started! To install J.A.T.E. on your device, follow the installation instructions above. As you type, you will see that JavaScript syntax is indeed highlighted, making code snippets easier to read and write. Content is saved once the window loses focus and is persistent between visits to the app, so no need to worry about losing your work!
 
 ## License
 
